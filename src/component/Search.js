@@ -9,7 +9,7 @@ function Search() {
     const [articles, setArticles] = useState([])
     const [search, setSearch] = useState('')
 
-    const ApiKey = '16747fbd0fda4a9b9ced3213a66453a0'
+    const ApiKey = "16747fbd0fda4a9b9ced3213a66453a0" //process.env.REACT_APP_API_KEY;
     const url = 'https://newsapi.org/v2/everything'
 
     const searchArticle = async (searchWord) => {
