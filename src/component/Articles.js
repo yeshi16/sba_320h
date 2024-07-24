@@ -1,98 +1,98 @@
-// import { useState, useEffect } from 'react';
-// import DisplayArticles from '../pages/DisplayArticles';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState, useEffect } from 'react';
+import DisplayArticles from '../pages/DisplayArticles';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-// function Articles() {
+function Articles() {
 
-//     const [articles, setArticles] = useState([])
+    const [articles, setArticles] = useState([])
 
-// const getArticles = async () => {
+const getArticles = async () => {
 
-//     try {
-//         const ApiKey = process.env.REACT_APP_API_KEY;
-//         // const ApiKey = '16747fbd0fda4a9b9ced3213a66453a0'
-//         //https://newsapi.org/v2/everything?apiKey=ApiKey
-//         const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${ApiKey}`)
-//         const data = await response.json()
-//         console.log(data.articles)
-//         setArticles(data.articles)
+    try {
+        // const ApiKey = process.env.REACT_APP_API_KEY;
+        const ApiKey = '16747fbd0fda4a9b9ced3213a66453a0'
+        //https://newsapi.org/v2/everything?apiKey=ApiKey
+        const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${ApiKey}`)
+        const data = await response.json()
+        console.log(data.articles)
+        setArticles(data.articles)
 
-//     } catch (e) {
-//         console.log('fetch err')
-//     }
+    } catch (e) {
+        console.log('fetch err')
+    }
 
-// }
+}
 
-//     const getArticles = async () => {
-//         try {
-//             const apiKey = process.env.REACT_APP_API_KEY;
-//             const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`);
-//             if (!response.ok) {
-//                 throw new Error('Network response was not ok');
-//             }
-//             const data = await response.json();
-//             console.log(data.articles);
-//             setArticles(data.articles);
-//         } catch (error) {
-//             console.error('Error fetching articles:', error);
-//         }  
-//     }  
+    // const getArticles = async () => {
+    //     try {
+    //         const apiKey = process.env.REACT_APP_API_KEY;
+    //         const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`);
+    //         if (!response.ok) {
+    //             throw new Error('Network response was not ok');
+    //         }
+    //         const data = await response.json();
+    //         console.log(data.articles);
+    //         setArticles(data.articles);
+    //     } catch (error) {
+    //         console.error('Error fetching articles:', error);
+    //     }  
+    // }  
 
-//     useEffect(() => {
-//         getArticles()
-//     }, [])
-
-
+    useEffect(() => {
+        getArticles()
+    }, [])
 
 
-//     return (
 
-//         <div className='container mt-5'>
 
-//             <div className="row">
-//                 {articles.map((article, i) => (
-//                     <div className="col-md-4 mb-4" key={i}>
-//                         <DisplayArticles article={article} />
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
+    return (
 
-//     )
+        <div className='container mt-5'>
 
-// }
+            <div className="row">
+                {articles.map((article, i) => (
+                    <div className="col-md-4 mb-4" key={i}>
+                        <DisplayArticles article={article} />
+                    </div>
+                ))}
+            </div>
+        </div>
 
-// export default Articles
+    )
 
-import React, { useState, useEffect } from 'react'; 
-import DisplayArticles from '../pages/DisplayArticles'; 
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+}
 
-function Articles() { 
-    const [articles, setArticles] = useState([]); 
-    useEffect(() => { const getArticles = async () => { 
-        try { 
-            const apiKey = "16747fbd0fda4a9b9ced3213a66453a0" // process.env.REACT_APP_API_KEY; 
-            const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`); 
-            if (!response.ok) 
-            { throw new Error('Network response was not ok'); } 
-            const data = await response.json(); 
-            console.log('Fetched articles:', data.articles); 
-            setArticles(data.articles); 
-        } catch (error) { 
-            console.error('Error fetching articles:', error); 
-        } }; 
-        getArticles(); }, []); 
+export default Articles
+
+// import React, { useState, useEffect } from 'react'; 
+// import DisplayArticles from '../pages/DisplayArticles'; 
+// import 'bootstrap/dist/css/bootstrap.min.css'; 
+
+// function Articles() { 
+//     const [articles, setArticles] = useState([]); 
+//     useEffect(() => { const getArticles = async () => { 
+//         try { 
+//             const apiKey =  process.env.REACT_APP_API_KEY; 
+//             const response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`); 
+//             if (!response.ok) 
+//             { throw new Error('Network response was not ok'); } 
+//             const data = await response.json(); 
+//             console.log('Fetched articles:', data.articles); 
+//             setArticles(data.articles); 
+//         } catch (error) { 
+//             console.error('Error fetching articles:', error); 
+//         } }; 
+//         getArticles(); }, []); 
         
-        return (
-        <div className="container mt-5"> 
-        <div className="row"> 
-        {articles.map((article, i) => (
-        <div className="col-md-4 mb-4" key={i}> 
-        <DisplayArticles article={article} /> 
-        </div>))} 
-        </div> 
-        </div>);
-         } 
+//         return (
+//         <div className="container mt-5"> 
+//         <div className="row"> 
+//         {articles.map((article, i) => (
+//         <div className="col-md-4 mb-4" key={i}> 
+//         <DisplayArticles article={article} /> 
+//         </div>))} 
+//         </div> 
+//         </div>);
+//          } 
         
-        export default Articles;
+//         export default Articles;
